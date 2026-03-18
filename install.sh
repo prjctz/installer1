@@ -8,7 +8,7 @@
 #https://github.com/TelegramMessenger/MTProxy/commit/0613f7616c7094725d71224b221b90c17b7e23ed
 #https://github.com/TelegramMessenger/MTProxy/blob/master/mtproto/mtproto-proxy.c#L2199C9-L2199C71
 
-set -euo pipefail
+#set -euo pipefail
 
 show_help() {
   cat <<'EOF'
