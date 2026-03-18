@@ -142,7 +142,7 @@ sysctl --system
 SECRET=$(head -c 16 /dev/urandom | xxd -ps)
 DD="dd$SECRET"
 EE="ee${SECRET}$(echo -n "$FAKE_DOMAIN" | xxd -p)"
-
+#EE="ee${SECRET}$(echo -n "$FAKE_DOMAIN" | xxd -p -c 256)"
 
 echo "FAKE_DOMAIN=$FAKE_DOMAIN"
 echo "SERVER_IP=$SERVER_IP"
