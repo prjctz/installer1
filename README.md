@@ -1,4 +1,4 @@
-# installer mtroxy
+# installer MTProxy
 # Debian 12
 
 ### Полный пример
@@ -9,3 +9,9 @@
 
  ### Мануал
 `bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --help`
+
+Протестировал работает, все разворачивается, при перезагрузке все поднимается.
+Выдает прокси 3-х уровней:
+1. обычный
+2. защищенный
+3. fake tls - у меня он не подключился в андроиде, код правильный, ищем причину вместе
