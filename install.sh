@@ -9,6 +9,7 @@
 #https://github.com/TelegramMessenger/MTProxy/blob/master/mtproto/mtproto-proxy.c#L2199C9-L2199C71
 
 #set -euo pipefail
+#set -e
 
 show_help() {
   cat <<'EOF'
@@ -96,11 +97,34 @@ echo -e "\033[1;31mЧтобы продолжить, нажмите Enter...\033[
 read && echo
 #exit 1
 
+
 apt-get update && apt-get install -y curl xxd
 #curl -fsSL https://get.docker.com | sh
 apt-get install -y docker.io
 systemctl enable --now docker
 docker --version
+
+#отрубаю ipv6
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+
+for iface in /proc/sys/net/ipv6/conf/*/disable_ipv6; do
+  echo 1 > "$iface"
+done
+
+CONF="/etc/sysctl.d/99-disable-ipv6.conf"
+
+cat > "$CONF" <<EOF
+# Disable IPv6 (managed by script)
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+EOF
+
+sysctl --system
+
+#
 
 SECRET=$(head -c 16 /dev/urandom | xxd -ps)
 DD="dd$SECRET"
@@ -184,6 +208,16 @@ EOF
 docker build -t mtproxy "$TEMP"
 
 docker rm -f mtproxy 2>/dev/null || true
+
+#docker run -d \
+#  --name mtproxy \
+#  --network host \
+#  -e SECRET="$SECRET" \
+#  -e PORT="$PORT" \
+#  -e WORKERS="$WORKERS" \
+#  -p "$PORT:$PORT" \
+#  --restart unless-stopped \
+#  mtproxy
 
 docker run -d \
   --name mtproxy \
