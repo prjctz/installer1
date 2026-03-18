@@ -110,6 +110,8 @@ wait_for_apt
 dpkg --configure -a
 
 apt-get update && apt-get install -y curl xxd
+apt-get install -y cron
+systemctl enable --now cron
 #curl -fsSL https://get.docker.com | sh
 apt-get install -y docker.io
 systemctl enable --now docker
@@ -222,7 +224,6 @@ docker rm -f mtproxy 2>/dev/null || true
 
 #docker run -d \
 #  --name mtproxy \
-#  --network host \
 #  -e SECRET="$SECRET" \
 #  -e PORT="$PORT" \
 #  -e WORKERS="$WORKERS" \
@@ -232,6 +233,7 @@ docker rm -f mtproxy 2>/dev/null || true
 
 docker run -d \
   --name mtproxy \
+  --network host \
   -e SECRET="$SECRET" \
   -e PORT="$PORT" \
   -e WORKERS="$WORKERS" \
