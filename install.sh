@@ -97,6 +97,17 @@ echo -e "\033[1;31mЧтобы продолжить, нажмите Enter...\033[
 read && echo
 #exit 1
 
+wait_for_apt() {
+  echo "Жду освобождения apt, он занят потому что сервер новый..."
+  while fuser /var/lib/dpkg/lock-frontend >/dev/null 2>&1 || \
+        fuser /var/lib/dpkg/lock >/dev/null 2>&1 || \
+        fuser /var/lib/apt/lists/lock >/dev/null 2>&1; do
+    sleep 3
+  done
+}
+
+wait_for_apt
+dpkg --configure -a
 
 apt-get update && apt-get install -y curl xxd
 #curl -fsSL https://get.docker.com | sh
