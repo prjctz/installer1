@@ -1,7 +1,7 @@
 # installer MTProxy
 # Debian 12
 
-## Скрипт собирает в докер из исходников [https://github.com/TelegramMessenger/MTProxy](https://github.com/TelegramMessenger/MTProxy)
+### Скрипт собирает в докер из исходников [https://github.com/TelegramMessenger/MTProxy](https://github.com/TelegramMessenger/MTProxy)
 
 ### Полный пример
 `bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --port=443 --ip=203.0.113.10 --domain=google.com --workers=1`
