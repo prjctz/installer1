@@ -243,8 +243,8 @@ docker run -d \
 
 rm -rf "$TEMP"
 
-echo "Ждем 5 сек"
-sleep 5
+echo "Ждем 10 сек"
+sleep 10
 
 docker inspect -f '{{.State.Status}}' mtproxy 2>/dev/null | grep -q running \
   || show_error "Докер не запустился"
