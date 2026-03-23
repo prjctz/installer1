@@ -19,3 +19,10 @@
 3. fake tls - у меня он не подключился в андроиде, код правильный, ищем причину вместе
 
 ### fake tls формат не заработает, его реализации нет в исходниках от телеграма
+
+### Автоматический инсталятор тут: [https://github.com/prjctz/tapok/](https://github.com/prjctz/tapok/)
+
+### Другие варианты:
+- [https://github.com/prjctz/installer2/](https://github.com/prjctz/installer2/)
+- [https://github.com/prjctz/installer3/](https://github.com/prjctz/installer3/)
+- [https://github.com/prjctz/installer4/](https://github.com/prjctz/installer4/)
