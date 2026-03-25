@@ -15,19 +15,16 @@ https://github.com/TelegramMessenger/MTProxy
 ---
 
 ### Full example
-```bash
-bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --port=443 --ip=203.0.113.10 --domain=google.com --workers=1
-```
+
+`bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --port=443 --ip=203.0.113.10 --domain=google.com --workers=1`
 
 ### Basic usage
-```bash
-bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --port=443
-```
+
+`bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --port=443`
 
 ### Manual
-```bash
-bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --help
-```
+
+`bash <(wget -qO- https://raw.githubusercontent.com/prjctz/installer1/refs/heads/main/install.sh) --help`
 
 ---
 
